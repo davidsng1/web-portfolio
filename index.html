@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David's Portfolio</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://kit.fontawesome.com/2714c6fdf5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Header Section Starts -->
+    <div id="header">
+      <div class="container">
+        <nav>
+          <img src="Images/David.png" alt="logo" />
+          <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-times" onclick="closemenu()"></i>
+          </ul>
+          <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>Front-End Developer</p>
+          <h1>Hi, I'm <span>David</span> from Institute Technology Sumatera</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section Starts -->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1"><img src="Images/2.png" /></div>
+          <div class="about-col-2">
+            <h1 class="subtitle">About Me</h1>
+            <p>I am a student at the Institute Technology Sumatera (ITERA) and a 3rd semester student of the Chemical Engineering Department. I come from North Sumatra, to be precise in the Sibolga area.</p>
+            <br />
+            <p>
+              I really like coding, and it's my hobby. I usually code 3-4 hours every day, and that's a lot of fun for me. I had many plans while I was in college, such as internships, student exchanges, and many more. This will be my first
+              step towards achieving it all.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Starts Here -->
+    <div id="portfolio">
+      <div class="container">
+        <h1 class="subtitle">Portfolio</h1>
+        <div class="work-list">
+          <div class="work">
+            <img src="Images/foto1.jpg" />
+          </div>
+          <div class="work">
+            <img src="Images/foto2.jpg" />
+          </div>
+          <div class="work">
+            <img src="Images/foto3.jpg" />
+          </div>
+        </div>
+        <a href="https://github.com/davidsng1" class="btn">See More</a>
+      </div>
+    </div>
+
+    <!-- Contact Starts Here -->
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="subtitle">Contact Me</h1>
+            <p><i class="fa-solid fa-paper-plane"></i>davidsinaga99d@gmail.com</p>
+            <p>
+              <a href="https://wa.me/6281265559104" target="_blank" class="btn btn2"><i class="fa-brands fa-whatsapp"></i>WhatsApp Me!</a>
+            </p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/davidsng_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/davidpanondangsinaga/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/davidsng1" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet">
+              <form action="">
+                <input type="text" name="Name" placeholder="Your Name" required />
+                <input type="email" name="Email" placeholder="Your Email" required />
+                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn btn3">Submit</button>
+              </form>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Copyright © David. Made With Love by David Panondang Sinaga</p>
+      </div>
+    </div>
+
+    <script>
+      var sidemenu = document.getElementById("sidemenu");
+      function openmenu() {
+        sidemenu.style.right = "0";
+      }
+      function closemenu() {
+        sidemenu.style.right = "-200px";
+      }
+    </script>
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwl_tpI6daaCUcfRUcpKUtLDl0G_zr0H1TsWLnZcXCCJTR08v-zrpSUvJvYpJPTq9A/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
